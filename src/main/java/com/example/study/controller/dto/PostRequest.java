@@ -1,9 +1,12 @@
 package com.example.study.controller.dto;
 
-public class CreatePostRequest {
-    public String title;
-    public String content;
-    public String author;
+import lombok.Getter;
+
+@Getter
+public class PostRequest {
+    private String title;
+    private String content;
+    private String author;
 
     @Override
     public String toString() {
