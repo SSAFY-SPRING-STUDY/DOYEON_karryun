@@ -3,10 +3,7 @@ package com.example.study.controller;
 import com.example.study.controller.dto.PostRequest;
 import com.example.study.controller.dto.PostResponse;
 import com.example.study.service.PostService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,4 +29,15 @@ public class PostController {
     public List<PostResponse> findAllPosts() {
         return postService.findAll();
     }
+
+    // 특정 게시글 상세 조회
+    @GetMapping("/api/posts/{id}")
+    public PostResponse findPostById(@PathVariable Long id) { // {id} 이거 가져와야 함
+        return postService.findById(id);
+    }
+
+    // 게시글 수정
+    @PutMapping("/api/posts/{id}")
+
+
 }
