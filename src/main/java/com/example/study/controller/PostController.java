@@ -18,9 +18,7 @@ public class PostController {
     // 게시글 생성
     @PostMapping("/api/posts")
     public PostResponse createPost(@RequestBody PostRequest request) {
-
         PostResponse response = postService.save(request);
-
         return response;
     }
 
@@ -42,5 +40,9 @@ public class PostController {
         return postService.update(id, postRequest);
     }
 
+    @DeleteMapping("/api/posts/{id}")
+    public PostResponse deletePost(@PathVariable Long id) {
+        return postService.delete(id);
+    }
 
 }

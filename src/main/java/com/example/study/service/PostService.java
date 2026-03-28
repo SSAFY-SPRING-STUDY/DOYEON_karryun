@@ -58,6 +58,17 @@ public class PostService {
         entity.update(postRequest.getTitle(), postRequest.getContent());
         return new PostResponse(entity);
     }
+
+    public PostResponse delete(Long id) {
+        PostEntity entity = postRepository.findById(id);
+
+        if (entity == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "삭제할 게시글이 없습니다.");
+        }
+
+        postRepository.delete(entity);
+        return new PostResponse(entity);
+    }
 }
 
 

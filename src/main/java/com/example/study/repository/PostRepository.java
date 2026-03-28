@@ -31,4 +31,8 @@ public class PostRepository {
         }
         return null;
     }
+
+    public void delete(PostEntity entity) {
+        storage.remove(entity);
+    }
 }
