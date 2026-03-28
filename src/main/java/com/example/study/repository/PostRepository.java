@@ -20,5 +20,6 @@ public class PostRepository {
     }
 
     public List<PostEntity> findAll() {
+        return store;
     }
 }
