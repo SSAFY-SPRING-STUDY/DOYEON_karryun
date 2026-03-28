@@ -38,6 +38,9 @@ public class PostController {
 
     // 게시글 수정
     @PutMapping("/api/posts/{id}")
+    public PostResponse updatePost(@PathVariable Long id, @RequestBody PostRequest postRequest) {
+        return postService.update(id, postRequest);
+    }
 
 
 }
