@@ -4,6 +4,7 @@ import com.example.study.controller.dto.PostRequest;
 import com.example.study.controller.dto.PostResponse;
 import com.example.study.entity.PostEntity;
 import com.example.study.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,14 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class PostService {
     // service에서만 repository를 접근할 수 있도록 설정
     private final PostRepository postRepository;
-
-    public PostService(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
 
     public PostResponse save(PostRequest request) {
         PostEntity postEntity = new PostEntity(request.getTitle(), request.getContent(), request.getAuthor());

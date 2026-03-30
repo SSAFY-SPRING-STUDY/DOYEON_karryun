@@ -10,11 +10,8 @@ import java.util.List;
 public class PostRepository {
     // 창고가 계속 생기면 안되고 딱 1개만 생겨야 하니까 static final 붙이기
     private static final List<PostEntity> storage = new ArrayList<>();
-    private static Long sequence = 0L;
 
     public PostEntity save(PostEntity entity) {
-        sequence++;
-        entity.setId(sequence);
         storage.add(entity);
         return entity;
     }

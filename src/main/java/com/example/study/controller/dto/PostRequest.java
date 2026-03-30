@@ -1,18 +1,14 @@
 package com.example.study.controller.dto;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public class PostRequest {
     private final String title;
     private final String content;
     private final String author;
-
-    public PostRequest(String title, String content, String author) {
-        this.title = title;
-        this.content = content;
-        this.author = author;
-    }
 
     @Override
     public String toString() {
