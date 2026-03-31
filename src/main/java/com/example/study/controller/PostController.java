@@ -28,19 +28,19 @@ public class PostController {
     }
 
     // 특정 게시글 상세 조회
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public PostResponse findPostById(@PathVariable Long id) { // {id} 이거 가져와야 함
         return postService.findById(id);
     }
 
     // 게시글 수정
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public PostResponse updatePost(@PathVariable Long id, @RequestBody PostRequest postRequest) {
         return postService.update(id, postRequest);
     }
 
     // 게시글 삭제
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public PostResponse deletePost(@PathVariable Long id) {
         return postService.delete(id);
     }
