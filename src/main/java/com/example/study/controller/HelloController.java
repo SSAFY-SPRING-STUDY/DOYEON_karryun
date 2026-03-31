@@ -1,5 +1,6 @@
-package com.example.study;
+package com.example.study.controller;
 
+import com.example.study.service.HelloService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
