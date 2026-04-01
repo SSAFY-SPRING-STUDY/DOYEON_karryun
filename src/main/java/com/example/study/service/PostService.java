@@ -9,8 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -49,6 +48,7 @@ public class PostService {
 
     public PostResponse update(Long id, PostRequest postRequest) {
         PostEntity entity = postRepository.findById(id);
+
         if (entity == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "수정할 게시글이 없습니다.");
         }

@@ -3,8 +3,7 @@ package com.example.study.repository;
 import com.example.study.entity.PostEntity;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class PostRepository {
