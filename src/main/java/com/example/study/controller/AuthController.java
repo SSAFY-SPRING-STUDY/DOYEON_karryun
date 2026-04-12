@@ -3,13 +3,11 @@ package com.example.study.controller;
 import com.example.study.controller.dto.LoginRequest;
 import com.example.study.controller.dto.LoginResponse;
 import com.example.study.service.AuthService;
+import com.example.study.util.AuthorizationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,5 +24,13 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String authHeader) {
+        String accessToken = AuthorizationUtils.getAccessToken(authHeader);
+        authService.logout(accessToken);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
