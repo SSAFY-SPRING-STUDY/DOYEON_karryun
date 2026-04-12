@@ -24,4 +24,8 @@ public class MemberRepository {
         }
         return Optional.empty();
     }
+
+    public Optional<MemberEntity> findById(long memberId) {
+        return Optional.ofNullable(memberStore.get(memberId));
+    }
 }
