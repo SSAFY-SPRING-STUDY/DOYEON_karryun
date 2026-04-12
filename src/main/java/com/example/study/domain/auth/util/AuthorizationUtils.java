@@ -11,5 +11,4 @@ public class AuthorizationUtils {
         }
         throw new IllegalArgumentException("토큰에 문제가 있습니다.");
     }
-
 }
