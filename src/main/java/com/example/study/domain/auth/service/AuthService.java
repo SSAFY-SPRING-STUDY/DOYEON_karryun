@@ -19,7 +19,7 @@ public class AuthService {
         MemberEntity member = memberRepository.findByLoginId(request.loginId())
                 .orElseThrow(() -> new RuntimeException("아이디가 올바르지 않습니다."));
 
-        if(member.isVAlidPassword(request.password())){
+        if(member.isValidPassword(request.password())){
             String token = sessionManager.createSession(member.getId());
             return new LoginResponse(token, "Bearer");
         }
