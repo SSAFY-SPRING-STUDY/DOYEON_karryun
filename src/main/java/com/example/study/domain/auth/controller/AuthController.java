@@ -25,7 +25,6 @@ public class AuthController {
         }
         return ResponseEntity.ok(response);
     }
-
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(@RequestHeader("Authorization") String authHeader) {
         String accessToken = AuthorizationUtils.getAccessToken(authHeader);

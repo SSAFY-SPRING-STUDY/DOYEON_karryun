@@ -21,5 +21,4 @@ public class MemberEntity {
     public boolean isVAlidPassword(String password) {
         return this.password.equals(password);
     }
-
 }
