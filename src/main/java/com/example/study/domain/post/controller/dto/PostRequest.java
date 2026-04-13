@@ -1,4 +1,4 @@
-package com.example.study.controller.dto;
+package com.example.study.domain.post.controller.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

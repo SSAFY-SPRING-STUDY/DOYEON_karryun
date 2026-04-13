@@ -1,9 +1,9 @@
-package com.example.study.service;
+package com.example.study.domain.post.service;
 
-import com.example.study.controller.dto.PostRequest;
-import com.example.study.controller.dto.PostResponse;
-import com.example.study.entity.PostEntity;
-import com.example.study.repository.PostRepository;
+import com.example.study.domain.post.controller.dto.PostRequest;
+import com.example.study.domain.post.controller.dto.PostResponse;
+import com.example.study.domain.post.entity.PostEntity;
+import com.example.study.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

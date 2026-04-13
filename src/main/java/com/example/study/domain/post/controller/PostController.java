@@ -1,8 +1,8 @@
-package com.example.study.controller;
+package com.example.study.domain.post.controller;
 
-import com.example.study.controller.dto.PostRequest;
-import com.example.study.controller.dto.PostResponse;
-import com.example.study.service.PostService;
+import com.example.study.domain.post.controller.dto.PostRequest;
+import com.example.study.domain.post.controller.dto.PostResponse;
+import com.example.study.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

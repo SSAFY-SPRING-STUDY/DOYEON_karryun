@@ -1,6 +1,6 @@
-package com.example.study.controller.dto;
+package com.example.study.domain.post.controller.dto;
 
-import com.example.study.entity.PostEntity;
+import com.example.study.domain.post.entity.PostEntity;
 import lombok.Getter;
 
 @Getter
