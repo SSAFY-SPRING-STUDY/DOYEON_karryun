@@ -8,14 +8,12 @@ import lombok.RequiredArgsConstructor;
 public class PostRequest {
     private final String title;
     private final String content;
-    private final String author;
 
     @Override
     public String toString() {
         return "CreatePostRequest{" +
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", author='" + author + '\'' +
                 '}';
     }
 }

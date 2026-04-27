@@ -4,9 +4,9 @@ import com.example.study.domain.auth.controller.dto.LoginRequest;
 import com.example.study.domain.auth.controller.dto.LoginResponse;
 import com.example.study.domain.auth.service.AuthService;
 import com.example.study.domain.auth.util.AuthorizationUtils;
+import com.example.study.global.common.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,20 +16,18 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
-        LoginResponse response = null;
-        try{
-            response = authService.login(request);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-        return ResponseEntity.ok(response);
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse<LoginResponse> login(@RequestBody LoginRequest request) {
+        LoginResponse response = authService.login(request);
+
+        return ApiResponse.success(response);
     }
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String authHeader) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ApiResponse<Void> logout(@RequestHeader("Authorization") String authHeader) {
         String accessToken = AuthorizationUtils.getAccessToken(authHeader);
         authService.logout(accessToken);
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ApiResponse.success();
     }
 }
